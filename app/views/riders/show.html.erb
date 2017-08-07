@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rider.name %>
+</p>
+
+<p>
+  <strong>Nation:</strong>
+  <%= @rider.nation %>
+</p>
+
+<p>
+  <strong>Bike:</strong>
+  <%= @rider.bike %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @rider.number %>
+</p>
+
+<%= link_to 'Edit', edit_rider_path(@rider) %> |
+<%= link_to 'Back', riders_path %>
+

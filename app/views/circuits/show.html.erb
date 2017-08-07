@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @circuit.attachment.url(:thumb) %>
+<p>
+  <strong>Name:</strong>
+  <%= @circuit.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @circuit.location %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @circuit.distance %>
+</p>
+
+<%= link_to 'Edit', edit_circuit_path(@circuit) %> |
+<%= link_to 'Back', circuits_path %>

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>TEAM:</strong>
+  <%= @team.name %>
+</p>
+
+	<strong>Riders:</strong>
+  <% @team.riders.each do |riders| %>
+		<p>
+		  <%= riders.name %>
+		</p>		
+  <% end %>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

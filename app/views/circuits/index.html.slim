@@ -1,0 +1,22 @@
+p#notice= notice
+h1 Circuits
+table.table.table-striped  
+  thead
+    tr
+      th Name
+      th Location
+      th Distance
+      th Map
+      th colspan="3" 
+  tbody class=".table-hover" 
+    - @circuits.each do |circuit|
+      tr
+        td= circuit.name
+        td= circuit.location
+        td= circuit.distance
+        td= image_tag circuit.attachment.url(:thumb), width: '50px'
+        td= link_to 'Show', circuit
+        td= link_to 'Edit', edit_circuit_path(circuit)
+        td= link_to 'Destroy', circuit, method: :delete, data: {confirm: 'Are you sure?'}  
+br/
+= link_to 'New Circuit', new_circuit_path

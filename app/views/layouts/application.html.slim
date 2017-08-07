@@ -1,0 +1,54 @@
+html
+  body.non-margin
+    p
+    title Demo
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    nav.navbar.navbar-default
+      /! Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        .col-md-2  
+          a.navbar-brand href="#{root_path}"
+            = image_tag "moto1.png", class: "nav-bar-logo"
+        /! Collect the nav links, forms, and other content for toggling
+        .col-md-10
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.nav-name
+                a href="/riders" 
+                  | Riders
+                  span.sr-only (current)
+              li.nav-name
+                a href="/teams"  Teams
+              li.nav-name
+                a href="/circuits"  Circuits
+              
+            form.navbar-form.navbar-left
+              .form-group
+                input.form-control.search placeholder="Search" type="text" /
+              button.btn.btn-default type="submit"  Submit
+            ul.nav.navbar-nav#signup-btn
+              li.btn-1
+                = link_to "Login", new_user_session_path, class:"btn btn-primary"
+              li.btn-2
+                = link_to "Sign up", new_user_registration_path, class:"btn btn-primary"
+              li.nav-name
+                a href="#" Facebook login
+          /! /.navbar-collapse
+        /! /.container-fluid
+        #user_nav
+          - if current_user
+            | Signed in as
+            = succeed "!" do
+              strong= current_user.name
+            = link_to "Sign out", signout_path, id: "sign_out"
+          - else
+            = link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"
+
+  = yield

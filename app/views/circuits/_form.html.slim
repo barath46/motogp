@@ -1,0 +1,9 @@
+= simple_form_for @circuit do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :attachment, as: :file
+    = f.input :name
+    = f.input :location
+    = f.input :distance
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,30 @@
+<%= simple_form_for @rider do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :rider_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nation %>
+    <%= f.text_field :nation, id: :rider_nation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bike %>
+    <%= f.text_field :bike, id: :rider_bike %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number, id: :rider_number, input_html: {class: "form-control"} %>
+  </div>
+
+  <div class="field">
+    <%= f.association :team, input_html: {class: "form-control"}%>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
